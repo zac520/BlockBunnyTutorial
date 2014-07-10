@@ -14,6 +14,7 @@ public abstract class GameState {
     protected OrthographicCamera cam;
     protected OrthographicCamera hudCam;
 
+
     protected GameState(GameStateManager gsm){
         this.gsm = gsm;
         game = gsm.game();

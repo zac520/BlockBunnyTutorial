@@ -1,5 +1,7 @@
-package com.NZGames.BlockBunny;
+package com.NZGames.BlockBunny.states;
 
+import com.NZGames.BlockBunny.handlers.GameStateManager;
+import com.NZGames.BlockBunny.main.BlockBunnyGame;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 

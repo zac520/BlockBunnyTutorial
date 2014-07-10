@@ -1,5 +1,6 @@
-package com.NZGames.BlockBunny;
+package com.NZGames.BlockBunny.main;
 
+import com.NZGames.BlockBunny.handlers.GameStateManager;
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;

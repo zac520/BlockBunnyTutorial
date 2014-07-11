@@ -1,4 +1,4 @@
-package com.NZGames.BlockBunny;
+package com.NZGames.BlockBunny.handlers;
 
 /**
  * Created by zac520 on 7/10/14.
@@ -10,7 +10,6 @@ public class B2DVars {
     //category bits
     //use only powers of 2
     public static final short BIT_GROUND = 2;
-    public static final short BIT_BOX = 4;
-    public static final short BIT_BALL = 8;
+    public static final short BIT_PLAYER = 4;
 
 }

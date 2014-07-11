@@ -1,6 +1,8 @@
 package com.NZGames.BlockBunny.main;
 
 import com.NZGames.BlockBunny.handlers.GameStateManager;
+import com.NZGames.BlockBunny.handlers.MyInput;
+import com.NZGames.BlockBunny.handlers.MyInputProcessor;
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
@@ -37,6 +39,9 @@ public class BlockBunnyGame extends ApplicationAdapter {
 
     @Override
 	public void create () {
+
+        Gdx.input.setInputProcessor(new MyInputProcessor());
+
         sb = new SpriteBatch();
         cam = new OrthographicCamera();
         cam.setToOrtho(false, V_WIDTH,V_HEIGHT);
@@ -53,6 +58,8 @@ public class BlockBunnyGame extends ApplicationAdapter {
             accum -=STEP;
             gsm.update(STEP);
             gsm.render();
+
+            MyInput.update();
         }
 	}
 

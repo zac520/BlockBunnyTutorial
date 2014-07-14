@@ -8,7 +8,7 @@ import com.badlogic.gdx.physics.box2d.*;
 public class MyContactListener implements ContactListener {
 
     private boolean playerOnGround;
-
+    private int numFootContacts =0;
 
     //called when two fixtures begin to collide
     public void beginContact (Contact c){
@@ -22,11 +22,14 @@ public class MyContactListener implements ContactListener {
         if(fa.getUserData() != null && fa.getUserData().equals("foot")){
             //System.out.println("fa is foot");
             playerOnGround = true;
+            numFootContacts ++;
+
 
         }
         if(fb.getUserData() != null && fb.getUserData().equals("foot")){
             //System.out.println("fb is foot");
             playerOnGround = true;
+            numFootContacts ++;
 
         }
     }
@@ -40,11 +43,14 @@ public class MyContactListener implements ContactListener {
         if(fa.getUserData() != null && fa.getUserData().equals("foot")){
             //System.out.println("fa is foot");
             playerOnGround = false;
+            numFootContacts --;
 
         }
         if(fb.getUserData() != null && fb.getUserData().equals("foot")){
             //System.out.println("fb is foot");
             playerOnGround = false;
+            numFootContacts --;
+
 
         }
     }
@@ -57,6 +63,7 @@ public class MyContactListener implements ContactListener {
     public void postSolve (Contact c, ContactImpulse ci) {}
 
     public boolean isPlayerOnGround(){
-        return playerOnGround;
+        //if there is at least one, then player is on ground. Not sure why that is better than the bool method
+        return numFootContacts >0;
     }
 }

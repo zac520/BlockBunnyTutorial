@@ -1,5 +1,6 @@
 package com.NZGames.BlockBunny.main;
 
+import com.NZGames.BlockBunny.handlers.Content;
 import com.NZGames.BlockBunny.handlers.GameStateManager;
 import com.NZGames.BlockBunny.handlers.MyInput;
 import com.NZGames.BlockBunny.handlers.MyInputProcessor;
@@ -25,6 +26,8 @@ public class BlockBunnyGame extends ApplicationAdapter {
 
     private GameStateManager gsm;
 
+    public static Content res;
+
     public SpriteBatch getSpriteBatch(){
         return sb;
     }
@@ -41,6 +44,9 @@ public class BlockBunnyGame extends ApplicationAdapter {
 	public void create () {
 
         Gdx.input.setInputProcessor(new MyInputProcessor());
+
+        res = new Content();
+        res.loadTexture("assets/images/bunny.png", "bunny");
 
         sb = new SpriteBatch();
         cam = new OrthographicCamera();
@@ -61,6 +67,12 @@ public class BlockBunnyGame extends ApplicationAdapter {
 
             MyInput.update();
         }
+
+//        sb.setProjectionMatrix(hudCam.combined);
+//        sb.begin();
+//        sb.draw(res.getTexture("bunny"),0,0);
+//        sb.end();
+
 	}
 
     @Override

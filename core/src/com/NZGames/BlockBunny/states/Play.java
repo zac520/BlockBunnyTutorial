@@ -113,11 +113,17 @@ public class Play extends GameState {
         }
         bodies.clear();
 
-
-        player.update(delta);
-
+        //update the crystals (for animation)
         for(int i = 0; i<crystals.size; i++){
             crystals.get(i).update(delta);
+        }
+
+        //update player stuff
+        player.update(delta);
+
+        //find out if fell off level. reset if true
+        if(player.getPostion().y < 0){
+            gsm.setState(GameStateManager.PLAY);
         }
     }
 
@@ -131,7 +137,7 @@ public class Play extends GameState {
                 BlockBunnyGame.V_HEIGHT/2,
                 0
         );
-                cam.update();
+        cam.update();
 
         //draw tilemap
         tmr.setView(cam);
@@ -236,7 +242,7 @@ public class Play extends GameState {
     public void createTiles(){
         /////////////////////////////////////////////////////////////////////
         // load tile map
-        tileMap = new TmxMapLoader().load("assets/maps/test2.tmx");
+        tileMap = new TmxMapLoader().load("assets/maps/test3.tmx");
         tmr = new OrthogonalTiledMapRenderer(tileMap);
 
         tileSize = tileMap.getProperties().get("tilewidth", Integer.class);

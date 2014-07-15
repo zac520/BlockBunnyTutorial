@@ -18,5 +18,171 @@
    eJzt10sKgDAMBcCS+x/atQWh4CeJnYHi0vJ8jToGAAAdRfYGgHQxXWGFvvQS0wLIMs8jcwn24azXYgbXc/WO9IzOnsyjcrZ3OpDZHx3+xkqmnbLXFSrq0Meq3w6Z938rgyrZAvBvWf9vwN4O/IcAgw==
   </data>
  </layer>
- <objectgroup name="crystals" width="400" height="8"/>
+ <objectgroup name="crystals" width="400" height="8">
+  <object x="117" y="204">
+   <ellipse/>
+  </object>
+  <object x="244" y="204">
+   <ellipse/>
+  </object>
+  <object x="344" y="169">
+   <ellipse/>
+  </object>
+  <object x="504" y="145">
+   <ellipse/>
+  </object>
+  <object x="657" y="117">
+   <ellipse/>
+  </object>
+  <object x="786" y="79">
+   <ellipse/>
+  </object>
+  <object x="977" y="149">
+   <ellipse/>
+  </object>
+  <object x="1137" y="180">
+   <ellipse/>
+  </object>
+  <object x="1484" y="180">
+   <ellipse/>
+  </object>
+  <object x="1611" y="149">
+   <ellipse/>
+  </object>
+  <object x="1959" y="149">
+   <ellipse/>
+  </object>
+  <object x="2200" y="165">
+   <ellipse/>
+  </object>
+  <object x="2635" y="105">
+   <ellipse/>
+  </object>
+  <object x="2701" y="47">
+   <ellipse/>
+  </object>
+  <object x="2866" y="112">
+   <ellipse/>
+  </object>
+  <object x="3093" y="199">
+   <ellipse/>
+  </object>
+  <object x="3282" y="184">
+   <ellipse/>
+  </object>
+  <object x="3432" y="175">
+   <ellipse/>
+  </object>
+  <object x="3514" y="173">
+   <ellipse/>
+  </object>
+  <object x="3631" y="209">
+   <ellipse/>
+  </object>
+  <object x="4044" y="211">
+   <ellipse/>
+  </object>
+  <object x="4342" y="210">
+   <ellipse/>
+  </object>
+  <object x="4545" y="210">
+   <ellipse/>
+  </object>
+  <object x="4841" y="143">
+   <ellipse/>
+  </object>
+  <object x="4977" y="113">
+   <ellipse/>
+  </object>
+  <object x="5162" y="151">
+   <ellipse/>
+  </object>
+  <object x="5320" y="151">
+   <ellipse/>
+  </object>
+  <object x="5649" y="182">
+   <ellipse/>
+  </object>
+  <object x="5902" y="110">
+   <ellipse/>
+  </object>
+  <object x="6286" y="117">
+   <ellipse/>
+  </object>
+  <object x="6501" y="149">
+   <ellipse/>
+  </object>
+  <object x="6791" y="175">
+   <ellipse/>
+  </object>
+  <object x="6997" y="149">
+   <ellipse/>
+  </object>
+  <object x="7279" y="78">
+   <ellipse/>
+  </object>
+  <object x="7467" y="82">
+   <ellipse/>
+  </object>
+  <object x="7722" y="142">
+   <ellipse/>
+  </object>
+  <object x="8073" y="175">
+   <ellipse/>
+  </object>
+  <object x="8201" y="144">
+   <ellipse/>
+  </object>
+  <object x="8430" y="118">
+   <ellipse/>
+  </object>
+  <object x="8782" y="119">
+   <ellipse/>
+  </object>
+  <object x="8945" y="148">
+   <ellipse/>
+  </object>
+  <object x="9086" y="113">
+   <ellipse/>
+  </object>
+  <object x="9270" y="112">
+   <ellipse/>
+  </object>
+  <object x="9554" y="112">
+   <ellipse/>
+  </object>
+  <object x="9799" y="112">
+   <ellipse/>
+  </object>
+  <object x="9892" y="179">
+   <ellipse/>
+  </object>
+  <object x="10240" y="146">
+   <ellipse/>
+  </object>
+  <object x="10391" y="146">
+   <ellipse/>
+  </object>
+  <object x="10440" y="82">
+   <ellipse/>
+  </object>
+  <object x="10785" y="55">
+   <ellipse/>
+  </object>
+  <object x="11065" y="134">
+   <ellipse/>
+  </object>
+  <object x="11445" y="116">
+   <ellipse/>
+  </object>
+  <object x="11820" y="149">
+   <ellipse/>
+  </object>
+  <object x="12048" y="119">
+   <ellipse/>
+  </object>
+  <object x="12432" y="147">
+   <ellipse/>
+  </object>
+ </objectgroup>
 </map>

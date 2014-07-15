@@ -1,12 +1,14 @@
 package com.NZGames.BlockBunny.states;
 
 import com.NZGames.BlockBunny.entities.Crystal;
+import com.NZGames.BlockBunny.entities.HUD;
 import com.NZGames.BlockBunny.entities.Player;
 import com.NZGames.BlockBunny.handlers.B2DVars;
 import com.NZGames.BlockBunny.handlers.GameStateManager;
 import com.NZGames.BlockBunny.handlers.MyContactListener;
 import com.NZGames.BlockBunny.handlers.MyInput;
 import com.NZGames.BlockBunny.main.BlockBunnyGame;
+import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
@@ -47,6 +49,7 @@ public class Play extends GameState {
 
     private Array<Crystal> crystals;
 
+    private HUD hud;
     public Play(GameStateManager gsm) {
 
         super(gsm);
@@ -61,16 +64,17 @@ public class Play extends GameState {
         //createPlatform();
         createPlayer();
 
-        //set up box2dcam
-        b2dCam = new OrthographicCamera();
-
-        b2dCam.setToOrtho(false, BlockBunnyGame.V_WIDTH / PPM, BlockBunnyGame.V_HEIGHT / PPM);
 
         createTiles();
 
         createCrystals();
 
+        //set up box2dcam
+        b2dCam = new OrthographicCamera();
+        b2dCam.setToOrtho(false, BlockBunnyGame.V_WIDTH / PPM, BlockBunnyGame.V_HEIGHT / PPM);
 
+        //set up hud
+        hud = new HUD(player);
     }
 
     public void handleInput() {
@@ -83,8 +87,10 @@ public class Play extends GameState {
                 player.getBody().applyForceToCenter(0, 250, true);
             }
         }
-        if (MyInput.isDown(MyInput.BUTTON2)) {
-            System.out.println("hold X");
+        //switch block color
+        if (MyInput.isPressed(MyInput.BUTTON2)) {
+            //System.out.println("hold X");
+            switchBlocks();
         }
     }
 
@@ -117,6 +123,14 @@ public class Play extends GameState {
         // clear screen
         Gdx.gl20.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
+        //set camera to follow player
+        cam.position.set(
+                player.getPostion().x * PPM + BlockBunnyGame.V_WIDTH /4,
+                BlockBunnyGame.V_HEIGHT/2,
+                0
+        );
+                cam.update();
+
         //draw tilemap
         tmr.setView(cam);
         tmr.render();
@@ -130,6 +144,11 @@ public class Play extends GameState {
         for(int i = 0; i<crystals.size; i++){
             crystals.get(i).render(sb);
         }
+
+        //draw hud
+        sb.setProjectionMatrix(hudCam.combined);
+        hud.render(sb);
+
         //draw box2d world
         if(debug) {
             b2dr.render(world, b2dCam.combined);
@@ -179,7 +198,7 @@ public class Play extends GameState {
         BodyDef bdef = new BodyDef();
         bdef.position.set(75 / PPM, 200 / PPM);
         bdef.type = BodyType.DynamicBody;
-        bdef.linearVelocity.set(0.1f,0);
+        bdef.linearVelocity.set(1f,0);
         //create body
         Body body = world.createBody(bdef);
 
@@ -344,6 +363,39 @@ public class Play extends GameState {
 
 
         }
+
+    }
+    private void switchBlocks(){
+        Filter filter = player.getBody().getFixtureList().first().getFilterData();
+        short bits = filter.maskBits;
+
+        //switch to next color blue->green->red
+        if((bits & BIT_BLUE) !=0){
+            //unset the blue bit
+            bits &= ~BIT_BLUE;
+            bits |= BIT_GREEN;
+
+        }
+        else if((bits & BIT_GREEN) !=0){
+            //unset the blue bit
+            bits &= ~BIT_GREEN;
+            bits |= BIT_RED;
+
+        }
+        else if((bits & BIT_RED) !=0){
+            //unset the blue bit
+            bits &= ~BIT_RED;
+            bits |= BIT_BLUE;
+
+        }
+        filter.maskBits = bits;
+        player.getBody().getFixtureList().first().setFilterData(filter);
+
+        //set new mask bits for foot
+        filter = player.getBody().getFixtureList().get(1).getFilterData();
+        bits &= ~BIT_CRYSTAL;
+        filter.maskBits = bits;
+        player.getBody().getFixtureList().get(1).setFilterData(filter);
 
     }
 

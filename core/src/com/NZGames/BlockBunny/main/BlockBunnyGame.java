@@ -48,6 +48,8 @@ public class BlockBunnyGame extends ApplicationAdapter {
         res = new Content();
         res.loadTexture("assets/images/bunny.png", "bunny");
         res.loadTexture("assets/images/crystal.png", "crystal");
+        res.loadTexture("assets/images/hud.png", "hud");
+
 
         sb = new SpriteBatch();
         cam = new OrthographicCamera();

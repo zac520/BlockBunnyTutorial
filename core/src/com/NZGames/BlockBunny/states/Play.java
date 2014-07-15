@@ -92,6 +92,8 @@ public class Play extends GameState {
             //System.out.println("hold X");
             switchBlocks();
         }
+
+
     }
 
     public void update(float delta) {
@@ -222,7 +224,7 @@ public class Play extends GameState {
         fdef.filter.maskBits = BIT_BLUE;
         fdef.isSensor = true;//make the foot go through ground for easier contact determining
         body.createFixture(fdef).setUserData("foot");
-
+        shape.dispose();
 
 
         //create player
@@ -298,6 +300,7 @@ public class Play extends GameState {
                 fdef.filter.maskBits = BIT_PLAYER;//default
                 fdef.isSensor = false;
                 world.createBody(bdef).createFixture(fdef);
+                cs.dispose();
             }
         }
     }
@@ -360,6 +363,7 @@ public class Play extends GameState {
             Crystal c = new Crystal(body);
             crystals.add(c);
             body.setUserData(c);
+            cshape.dispose();
 
 
         }

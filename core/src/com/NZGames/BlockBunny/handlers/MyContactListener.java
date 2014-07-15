@@ -1,6 +1,7 @@
 package com.NZGames.BlockBunny.handlers;
 
 import com.badlogic.gdx.physics.box2d.*;
+import com.badlogic.gdx.utils.Array;
 
 /**
  * Created by zac520 on 7/10/14.
@@ -9,7 +10,12 @@ public class MyContactListener implements ContactListener {
 
     private boolean playerOnGround;
     private int numFootContacts =0;
+    private Array<Body> bodiesToRemove;
 
+    public MyContactListener(){
+        super();
+        bodiesToRemove = new Array<Body>();
+    }
     //called when two fixtures begin to collide
     public void beginContact (Contact c){
         //System.out.println("Begin Contact");
@@ -32,6 +38,21 @@ public class MyContactListener implements ContactListener {
             numFootContacts ++;
 
         }
+        if(fa.getUserData() != null && fa.getUserData().equals("crystal")){
+            //remove crystal
+            //since world is updating, we are going to queue the crystals
+            //and remove them after the update for each step
+            bodiesToRemove.add(fa.getBody());
+
+        }
+        if(fb.getUserData() != null && fb.getUserData().equals("crystal")){
+            //remove crystal
+            //since world is updating, we are going to queue the crystals
+            //and remove them after the update for each step
+            bodiesToRemove.add(fb.getBody());
+
+
+        }
     }
 
     //called when two fixtures no longer collide
@@ -50,9 +71,9 @@ public class MyContactListener implements ContactListener {
             //System.out.println("fb is foot");
             playerOnGround = false;
             numFootContacts --;
-
-
         }
+
+
     }
 
     //collision detection
@@ -65,5 +86,8 @@ public class MyContactListener implements ContactListener {
     public boolean isPlayerOnGround(){
         //if there is at least one, then player is on ground. Not sure why that is better than the bool method
         return numFootContacts >0;
+    }
+    public Array getBodiesToRemove(){
+        return bodiesToRemove;
     }
 }

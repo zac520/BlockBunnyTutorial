@@ -18,4 +18,54 @@
    eJxjYBgFo2AUDHbAjAMPdoDL3YPFHwAtIAAx
   </data>
  </layer>
+ <objectgroup name="crystals" width="40" height="8">
+  <object x="32" y="184">
+   <ellipse/>
+  </object>
+  <object x="81" y="189">
+   <ellipse/>
+  </object>
+  <object x="82" y="147">
+   <ellipse/>
+  </object>
+  <object x="210" y="154">
+   <ellipse/>
+  </object>
+  <object x="201" y="202">
+   <ellipse/>
+  </object>
+  <object x="154" y="170">
+   <ellipse/>
+  </object>
+  <object x="196" y="124">
+   <ellipse/>
+  </object>
+  <object x="257" y="135">
+   <ellipse/>
+  </object>
+  <object x="263" y="197">
+   <ellipse/>
+  </object>
+  <object x="304" y="151">
+   <ellipse/>
+  </object>
+  <object x="203" y="96">
+   <ellipse/>
+  </object>
+  <object x="127" y="63">
+   <ellipse/>
+  </object>
+  <object x="114" y="126">
+   <ellipse/>
+  </object>
+  <object x="54" y="73">
+   <ellipse/>
+  </object>
+  <object x="144" y="106">
+   <ellipse/>
+  </object>
+  <object x="648" y="323">
+   <ellipse/>
+  </object>
+ </objectgroup>
 </map>
